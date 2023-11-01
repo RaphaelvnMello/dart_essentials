@@ -79,7 +79,7 @@ class Essentials {
     print(lastName);
 
     // We can guarantee that variable is not null with operator '!'
-    print(lastName!.length);
+    //print(lastName!.length);
 
     //Dart can promoted locals variables.
     lastName = "mello";
@@ -92,5 +92,97 @@ class Essentials {
     String? noValue;
     noValue = null;
     print(noValue?.length);
+  }
+
+  void modifiers() {
+    //final
+    //The data must be configured in runtime
+    final String nameFinal;
+    nameFinal = "Raphael";
+    print(nameFinal);
+
+    //const
+    //The data must be configured at compile time
+    final String nameConst = "Raphael";
+    print(nameConst);
+  }
+
+  void condition() {
+    //Relational operators
+    //6 types
+    // == (equal), != (different), > (greater then), < (less then), >= (greater than or equal to), <= (less than or equal to)
+    final int age = 16;
+    bool isOver = age >= 16;
+    if (isOver) {
+      print("You can get your car license");
+    } else {
+      print("You are not old enough");
+    }
+
+    //Logic Operators
+    //&& (And)
+    //All conditions must be true
+    final double bmi = 30.0;
+
+    if (bmi >= 30) {
+      print("You are obese");
+    } else if (bmi >= 18.5 && bmi <= 24.9) {
+      print("You are normal");
+    } else if (bmi < 18.5) {
+      print("you are thin");
+    }
+    // || (Or)
+    //Just one condition must be true
+    bool isCat;
+    bool isDog;
+    isDog = true;
+    isCat = true;
+    if (isDog) {
+      print("Is is a dog");
+    }
+    if (isCat) {
+      print("Is is a Cat");
+    }
+    isDog = false;
+    if (isDog || isCat) {
+      print("Is is a dog or a cat");
+    }
+    // ! (not)
+    //Just one condition must be true
+    bool isTurtle;
+
+    isTurtle = false;
+    if (!isTurtle) {
+      print("Is is not a turtle");
+    }
+
+    //ternary operator
+    age > 18 ? print("Is over 18") : print("is under 18");
+
+    //switch
+    final dayOfWeek = 0;
+    switch (dayOfWeek) {
+      case 0:
+        print("Monday");
+        break;
+      case 1:
+        print("Tuesday");
+        break;
+      case 3:
+        print("Wednesday");
+        break;
+      case 4:
+        print("Thursday");
+        break;
+      case 5:
+        print("Friday");
+        break;
+      case 6:
+        print("Saturday");
+        break;
+      default:
+        print("Sunday");
+        break;
+    }
   }
 }
