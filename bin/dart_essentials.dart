@@ -5,4 +5,6 @@ void main() {
   dart_essentials.Essentials().nullSafety();
   dart_essentials.Essentials().modifiers();
   dart_essentials.Essentials().condition();
+  dart_essentials.Essentials().list();
+  dart_essentials.Essentials().loop();
 }

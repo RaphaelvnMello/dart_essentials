@@ -86,12 +86,28 @@ class Essentials {
     print(lastName.length);
 
     //But we can't promoted top level variables.
+
     topLevelVariables2 = "superior";
+
+    // but we can transform a top level variavle in local variable.
+    var localVariable = topLevelVariables2;
+    print(localVariable);
+
     //we can use "?" to check with the variable is null.
+    //Conditional property access
     print(topLevelVariables2?.length);
     String? noValue;
     noValue = null;
     print(noValue?.length);
+
+    //null aware operator
+    String brand = "Ford";
+    String? model;
+    String car;
+
+    // ignore: dead_code
+    car = model?.toLowerCase() ?? brand;
+    print(car);
   }
 
   void modifiers() {
@@ -184,5 +200,135 @@ class Essentials {
         print("Sunday");
         break;
     }
+  }
+
+  void list() {
+    List<int> numbers = [1, 2, 3];
+    print(numbers);
+    var numbers1 = [1, 2, 3];
+    print(numbers1);
+    List<int> emptyList = [];
+    print(emptyList);
+    var emptyList1 = <int>[];
+    print(emptyList1);
+    //non-null
+    List<String> names = ["Pedro", "Paulo", "José"];
+    print(names);
+    //null
+    List<String>? names1;
+    print(names1);
+    //null values
+    List<String?> names2 = [null, "Pedro", null];
+    print(names2);
+    //can be null or with null values
+    List<String?>? names3 = [null, null, null];
+    print(names3);
+
+    // add itens in a list
+    numbers.add(4);
+    print(numbers);
+
+    names.add("Maria");
+    names.addAll(["Luiz", "Fernando", "Bento"]);
+    print(names);
+    print(names[3]);
+
+    //insert data in a specific position
+    numbers.insert(0, 0);
+    print(numbers);
+
+    //remove element
+    names.remove("Fernando");
+    print(names);
+
+    names.removeWhere((element) => element == "Luiz");
+    print(names);
+
+    //search value
+    var numbersWhere = numbers.firstWhere((element) => element == 1);
+    print(numbersWhere);
+
+    //generate numbers
+    final generateNumbers = List.generate(10, (index) => index);
+    print(generateNumbers);
+
+    //filled values
+
+    final filledNumbers = List.filled(10, 10);
+    print(filledNumbers);
+
+    var sum = generateNumbers.fold(
+        0, (previousValue, element) => previousValue + element);
+    print(sum);
+
+    // spread operator
+    var spreadListOne = [1, 2, 3];
+    var spreadlist = [...spreadListOne, 4, 5, 6];
+    print(spreadlist);
+
+    //Collection if
+    bool isSale = true;
+
+    var products = [
+      "sandwitch",
+      "juice",
+      if (isSale) "fries",
+    ];
+    print(products);
+
+    //Collection for
+    var itens = [1, 2, 3];
+
+    var index = [
+      '0',
+      for (var i in itens) '$i',
+    ];
+    print(index);
+  }
+
+  void loop() {
+    var numeros = List.generate(10, (index) => index);
+    var nomes = ['Rodrigo', 'Guilherme', 'Arthur', 'Sandra', 'Marcos'];
+
+    for (var i = 0; i < numeros.length; i++) {
+      print(numeros[i]);
+    }
+
+    for (var i = 0; i < nomes.length; i++) {
+      print(nomes[i]);
+      if (i == 2) {
+        break;
+      }
+    }
+
+    for (var i = 0; i < nomes.length; i++) {
+      print(nomes[i]);
+      if (i == 2) {
+        continue;
+      }
+    }
+
+    for (var nome in nomes) {
+      print(nome);
+    }
+
+    var numbers = 0;
+    while (numbers <= 10) {
+      numbers++;
+      print(numbers);
+    }
+    do {
+      numbers--;
+      print(numbers);
+    } while (numbers > 0);
+
+    //interables
+
+    numeros
+        .where((element) => element != 3)
+        .forEach((element) => print(element));
+
+    var numbersStr = numeros.map((e) => '$e').toList();
+    print(numbersStr);
   }
 }
